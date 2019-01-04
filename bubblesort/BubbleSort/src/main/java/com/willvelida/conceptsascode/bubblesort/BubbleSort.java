@@ -17,6 +17,29 @@ public class BubbleSort {
         }
     }
 
+    // Bubble Sort improvement
+    public void sortV2(int[] numbers) {
+        int i = 0;
+        boolean hasSwappedOccured = true;
+        while (hasSwappedOccured) {
+            hasSwappedOccured = false;
+            i++;
+            for (int j = 0; j < numbers.length - i; j++) {
+                if (numbers[j] > numbers[j + 1]) {
+                    swap(numbers, j, j + 1);
+                    hasSwappedOccured = true;
+                }
+            }
+        }
+    }
+
+    // swap helper method
+    private void swap(int[] numbers, int a, int b) {
+        int temp = numbers[a];
+        numbers[a] = numbers[b];
+        numbers[b] = temp;
+    }
+
     // Program entry
     public static void main(String[] args) {
         // Instantiate a new instance of our BubbleSort class
@@ -26,7 +49,10 @@ public class BubbleSort {
         int[] inputArray = new int[]{6,4,3,6,4,7,9,2,4,3,1};
 
         // Call our sortV1 method and pass in our inputArray
-        sort.sortV1(inputArray);
+        // sort.sortV1(inputArray);
+
+        // Call our sortV2 method and pass in our inputArray
+        sort.sortV2(inputArray);
 
         // Print out the results to the console
         System.out.println(Arrays.toString(inputArray));
